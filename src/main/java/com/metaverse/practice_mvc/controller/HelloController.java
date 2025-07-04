@@ -11,4 +11,16 @@ public class HelloController {
     public String hello() {
         return "hello world.";
     }
+
+    @GetMapping("api/get")
+    @ResponseBody
+    public String get(){
+        return "Get method 요청.";
+    }
+
+    @GetMapping("api/post")
+    @ResponseBody
+    public String post(){
+        return "Post method 요청.";
+    }
 }
