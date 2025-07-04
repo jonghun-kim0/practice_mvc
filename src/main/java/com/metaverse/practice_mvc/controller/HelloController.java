@@ -1,38 +1,37 @@
 package com.metaverse.practice_mvc.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class HelloController {
-    @GetMapping("api/hello")
+@RequestMapping("api")
+public class HelloController { //prefix
+
+    @GetMapping("/hello")
     @ResponseBody
     public String hello() {
         return "hello world.";
     }
 
-    @GetMapping("api/get")
+    @GetMapping("/get")
     @ResponseBody
     public String get(){
         return "Get method 요청.";
     }
 
-    @GetMapping("api/post")
+    @PostMapping("/post")
     @ResponseBody
     public String post(){
         return "Post method 요청.";
     }
 
-    @PutMapping("api/put")
+    @PutMapping("/put")
     @ResponseBody
     public String put(){
         return "Put method 요청.";
     }
 
-    @DeleteMapping("api/delete")
+    @DeleteMapping("/delete")
     @ResponseBody
     public String delete(){
         return "Delete method 요청.";
