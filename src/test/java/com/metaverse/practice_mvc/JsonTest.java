@@ -19,4 +19,16 @@ public class JsonTest {
         String jsonString = objectMapper.writeValueAsString(star);
         System.out.println("Json result : " + jsonString);
     }
+
+    @Test
+    @DisplayName("JSON to Object : Get method 필요")
+    void test2() throws JsonProcessingException{
+        String json = "{\"name\" : \"NANA\" , \"age\" : 250}";
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        //json의 문자열을 star 클라스에 맞추어 값을 읽고 변환.
+        Star star = objectMapper.readValue(json,Star.class);
+        System.out.println("name : " + star.getName());
+        System.out.println("age : " + star.getAge());
+    }
 }
