@@ -24,4 +24,10 @@ public class DataRequestController {
     public String helloRequestParam(@RequestParam String name, @RequestParam Integer age) {
         return String.format("Hello, @PathVariable로 받은 값들, <br> name = %s, age = %d",name,age);
     }
+    //QueryString 방식 POST 요청 받는 방법
+    @PostMapping("/form/param")
+    @ResponseBody
+    public String helloRequestParamPost(@RequestParam String name, @RequestParam Integer age) {
+        return String.format("Hello, @PathVariable로 받은 값들, <br> name = %s, age = %d",name,age);
+    }
 }
