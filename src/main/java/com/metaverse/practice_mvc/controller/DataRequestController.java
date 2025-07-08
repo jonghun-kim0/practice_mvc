@@ -1,5 +1,6 @@
 package com.metaverse.practice_mvc.controller;
 
+import com.metaverse.practice_mvc.domain.Star;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +23,25 @@ public class DataRequestController {
     @GetMapping("/form/param")
     @ResponseBody
     public String helloRequestParam(@RequestParam String name, @RequestParam Integer age) {
-        return String.format("Hello, @PathVariable로 받은 값들, <br> name = %s, age = %d",name,age);
+        return String.format("Hello, @RequestParam로 받은 값들, <br> name = %s, age = %d",name,age);
     }
     //QueryString 방식 POST 요청 받는 방법
     @PostMapping("/form/param")
     @ResponseBody
     public String helloRequestParamPost(@RequestParam String name, @RequestParam Integer age) {
-        return String.format("Hello, @PathVariable로 받은 값들, <br> name = %s, age = %d",name,age);
+        return String.format("Hello, @RequestParam로 받은 값들, <br> name = %s, age = %d",name,age);
+    }
+
+    //
+    @PostMapping("/form/model")
+    @ResponseBody
+    public String helloRequestModel(@ModelAttribute Star star) {
+        return String.format("Hello, @ModelAttribute로 받은 객체 POST 요청, <br> name = %s, age = %d",star.getName(),star.getAge());
+    }
+
+    @GetMapping("/form/param/model")
+    @ResponseBody
+    public String helloRequestModelGet(@ModelAttribute Star star) {
+        return String.format("Hello, @ModelAttribute로 받은 객체 GET 요청, <br> name = %s, age = %d",star.getName(),star.getAge());
     }
 }
