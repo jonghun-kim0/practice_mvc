@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DataResponeController {
     @GetMapping("response/json/string")
     public String helloStringJson(){
-        return "{\"name\" : \"Meta\", \"age\" = 95 }";
+        return "{\"name\" : \"Meta\", \"age\" : 95 }";
     }
 
     @GetMapping("response/json/instance")
